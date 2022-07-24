@@ -1,0 +1,67 @@
+ <main class="site-main" role="main">
+                <div class="single-post-container bg-gray-100 pb-6">
+        <div class="page-banner mb-6">
+            <div class="banner orange-to-yellow">
+                <div class="container">
+                    <div class="flex row">
+                        <div class="breadcrumb"><span><span><a href="https://www.yana-j.fr/">Accueil</a> &gt; <span><a href="https://www.yana-j.fr/actualites-articles/">Actualités - page <%=@page%></a> &gt; <span class="breadcrumb_last" aria-current="page"><%=@news.title%></span></span></span></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container small">
+            <div class="single-post-wrapper flex row flex-wrap flex-col-reverse md:flex-row">
+                <aside class="post-sidebar hidden md:block w-full md:w-3/16 lg:w-4/16 xl:w-5/16 ">
+                    
+                                            <ul class="categories-list flex flex-col items-end ml-auto">
+                                                         <%@news.categories.each do |cat|%>
+                                   <li>
+                                    <span class="category"><%=cat.name%></span>
+                                </li>
+                                <%end%>
+                                                    </ul>
+                    
+                                            <p class="post-excerpt text-right"><%=news.excerpt%></p>
+                    
+                    <div class="btn-previous-post flex items-center">
+                        <svg width="15px" height="10px" style="transform: rotate(180deg)" viewBox="0 0 15 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="translate(-365.000000, -10.000000)" fill="#000000" fill-rule="nonzero"><path d="M375.59375,18.9531257 C375.406249,18.7656248 375.406249,18.5781266 375.59375,18.3906257 L378.734375,14.9218757 L365.375,14.9218757 C365.124999,14.9218757 365,14.796877 365,14.5468757 C365,14.2968745 365.124999,14.1718757 365.375,14.1718757 L378.734375,14.1718757 L375.59375,10.7031257 C375.406249,10.5156248 375.406249,10.3281266 375.59375,10.1406257 C375.781251,9.95312477 375.968749,9.95312477 376.15625,10.1406257 C378.625012,12.8593893 379.875,14.2343755 379.90625,14.2656257 C379.96875,14.328126 380,14.4218751 380,14.5468757 C380,14.6718763 379.96875,14.7656254 379.90625,14.8281257 L376.15625,18.9531257 C376.09375,19.015626 376,19.0468757 375.875,19.0468757 C375.749999,19.0468757 375.65625,19.015626 375.59375,18.9531257 Z"></path></g></svg>
+                        <a href="https://www.yana-j.fr/actualites-articles/">Retour aux actualités</a>
+                    </div>
+                </aside>
+
+                <article id="post-<%=@news.id%>" class="post-<%=@news.id%> post type-post status-publish format-standard has-post-thumbnail hentry<%@news.categories.each do |cat|%> category-<%=cat.name.parameterize%><%end%>">
+                    <div class="container">
+                        <div class="post-content">
+                            <header class="post-header">
+                                <span class="news-date text-blue-100 font-cursive"><%=l(@news.created_at,format: :mydatenews)%></span>
+                                <h1 class="post-title font-bold text-black-200"><%=@news.title%></h1>
+
+                                                                    <div class="thumbnail-container">
+                                        <img src="<%=@news.image%>" alt="">
+                                    </div>
+                                                            
+                            </header>
+
+                            <div class="content">
+<%=@news.content.html_safe%>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            <%if @news.othernews.length > 0%>
+            <section class="read-more-posts row">
+                <h2 class="font-bold text-black-200">Voir aussi ...</h2>
+
+                <div class="flex flex-col md:flex-row items-stretch">
+              
+                <%=render collection: @news.othernews, as: :news, partial: "news"%>
+                </div>
+            </section>
+            <%end%>
+        </div>
+    </div>
+
+        </main>

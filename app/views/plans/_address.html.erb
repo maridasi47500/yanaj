@@ -1,0 +1,55 @@
+     <div class="zone-card w-full md:w-1/2 overflow-hidden px-6"
+    data-addr="<%=address.fulladdress%>"
+    data-location_id="<%=address.id%>"
+    data-lat="<%=address.latitude%>"
+    data-lng="<%=address.longitude%>"
+    data-phone_1="<%=address.phone1%>"
+    data-phone_2="<%=address.phone2%>"
+    data-email_contact="<%=address.email%>">
+
+    <div class="zone-card-head">
+        <h4><%=address.place%></h4>
+    </div>
+
+    <div class="zone-card-content bg-white">
+                    <div class="flex flex-row items-stretch zone-localisation">
+                <div class="svg-icn">
+                    <svg width="18" height="18" role="img"><use xlink:href="https://www.yana-j.fr/wp-content/themes/yanaj/static/dist/img/svg-defs.svg#icn_pin"/></svg>
+                </div>
+                <div>
+                    <span><%=address.street%></span><br>
+                                        <span><%=address.fullcity%></span>
+                </div>
+            </div>
+            <%if address.phone1 %>
+                    <div class="flex flex-row items-center">
+                <div class="svg-icn"><svg width="18" height="18" role="img"><use xlink:href="https://www.yana-j.fr/wp-content/themes/yanaj/static/dist/img/svg-defs.svg#icn_phone"/></svg></div>
+                <div>
+                    <span><%=address.phone1%></span>
+                    <%if address.phone2%>span><%=address.phone2%></span><%end%>
+                </div>
+            </div>
+        
+        
+                    <div class="flex flex-row items-center">
+                <div class="svg-icn"><svg width="18" height="18" role="img"><use xlink:href="https://www.yana-j.fr/wp-content/themes/yanaj/static/dist/img/svg-defs.svg#icn_email"/></svg></div>
+                <div>
+                    <a class="text-black-300" href="mailto:<%=address.email%>" target="_blank"><%=address.email%></a>
+                </div>
+            </div>
+        
+        
+        
+                    <div class="schedule">
+                <p><span style="font-weight: 400;">Lundi et jeudi : 8h00 à 16h00<br />
+</span><span style="font-weight: 400;">Mardi, mercredi et vendredi : 8h00 à 12h30</span></p>
+<p>&nbsp;</p>
+
+            </div>
+        
+        
+                    <div>
+                <p><a href="#1489" class="map_link">Voir sur la carte</a></p>
+            </div>
+            </div>
+</div>

@@ -1,0 +1,31 @@
+<nav class="pagination flex justify-end" aria-label="Navigation des pages">
+<%if (@page - 1) > 0%>
+
+<%=link_to "« Précédent", newspage_path(page: (@page-1), thematique: params[:thematique]), {class: "prev page-numbers" }%>
+
+<%end%>
+<%=link_to_unless_current("<span class=\"sr-only\">Page </span>1".html_safe,indexnews_path(thematique: params[:thematique]), {class:"page-numbers"}) do 
+"<span aria-current=\"page\" class=\"page-numbers current\"><span class=\"sr-only\">Page </span>1</span>".html_safe
+end %>
+<%if (@page - 4) > 0%>
+<span class="page-numbers dots">…</span>
+<%end%>
+<%if @news[0]%>
+<%((@page - 2)..(@page+2)).to_a.select{|x|x> 1 && x < @news[0].nbnewspages}.each do |h|%>
+<%=link_to_unless_current("<span class=\"sr-only\">Page </span>#{h}".html_safe,newspage_path(page: h, thematique: params[:thematique]), {class:"page-numbers"}) do 
+"<span aria-current=\"page\" class=\"page-numbers current\"><span class=\"sr-only\">Page </span>#{h}</span>".html_safe
+end %>
+<%end%>
+<%end%>
+<%if @news[0] && (@page + 4) < @news[0].nbnewspages%>
+<span class="page-numbers dots">…</span>
+<%end%>
+<%if @news[0] && @news[0].nbnewspages > 1 %>
+<%=link_to_unless_current("<span class=\"sr-only\">Page </span>#{@news[0].nbnewspages}".html_safe,newspage_path(page: @news[0].nbnewspages, thematique: params[:thematique]), {class:"page-numbers"}) do 
+"<span aria-current=\"page\" class=\"page-numbers current\"><span class=\"sr-only\">Page </span>#{@news[0].nbnewspages}</span>".html_safe
+end %>
+<%end%>
+<%if @news[0] && @news[0].nbnewspages > @page %>
+<%=link_to "Suivant »", newspage_path(page: (@page+1), thematique: params[:thematique]), {class: "next page-numbers" }%>
+<%end%>      
+  </nav>

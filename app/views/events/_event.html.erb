@@ -1,0 +1,25 @@
+      <article  class="flex flex-col card-event-wrapper w-full md:w-1/2 lg:w-1/3 overflow-hidden ">
+                                <span class="events-date text-blue-100 font-cursive" data-equalize="news-readmore-date"><%=event.mydate%></span>
+
+                                <div class="flex flex-col title-container" data-equalize="news-readmore-title">
+                                    <h2 class="font-bold">
+                                        <a class="text-black-200" href="<%=event_path(title: event.url)%>"><%=event.title%></a>
+                                    </h2>
+
+                                                                    </div>
+
+                                <div class="categories-list" data-equalize="news-readmore-categories">
+                                    <%event.topics.each do |topic|%>
+                                                                            <span class="category mb-2 mr-2"><%=topic.name%></span>
+                                                                            <%end%>
+                     </div>
+
+                                <div class="read-more-container self-end">
+                                    <a href="<%=event_path(title: event.url)%>" class="read-more">
+    Lire
+    <svg width="20" height="20" role="img">
+        <use xlink:href="https://www.yana-j.fr/wp-content/themes/yanaj/static/dist/img/svg-defs.svg#icn_plus"/>
+    </svg>
+</a>
+                                </div>
+                            </article>

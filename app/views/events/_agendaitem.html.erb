@@ -1,0 +1,40 @@
+<div class="agenda-card w-full flex justify-between">
+        <div class="event-container">
+            
+            <div class="event-date mb-4">
+                <span class="text-blue-200 font-cursive"><%=event.mydate%></span>
+            </div>
+
+            <h2 class="event-title mb-6">
+                <a class="text-black-100 font-bold" href="<%=event_path(title: event.url)%>"><%=event.title%></a>
+            </h2>
+
+            <div class="flex flex-col md:flex-row items-start">
+                                    <div class="thumbnail-container w-full md:w-auto">
+                        <a href="<%=event_path(title: event.url)%>" class="block">
+                            <img src="<%=event.image%>" height="303" alt="" class="hidden md:block mr-6 mb-4">
+                        </a>
+                    </div>
+                                <div class="flex-1">
+                    
+                                            <p class="event-excerpt text-black-300 mt-0"><%=event.excerpt%></p>
+                    
+                    <a href="<%=event_path(title: event.url)%>" class="read-more">
+    Lire
+    <svg width="20" height="20" role="img">
+        <use xlink:href="https://www.yana-j.fr/wp-content/themes/yanaj/static/dist/img/svg-defs.svg#icn_plus"/>
+    </svg>
+</a>
+                </div>
+            </div>
+
+                            <div class="categories-list">
+                                            <%event.topics.each do |topic|%>
+                                            <span class="category mb-2 mr-2"><%=topic.name%></span>
+                                            <%end%>
+                                    </div>
+                    </div>
+    </div>
+</div>
+                                                            <div class="agenda-card-container flex flex-col md:flex-row justify-between w-full lg:w-1/2 px-4">
+    

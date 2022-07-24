@@ -1,0 +1,8 @@
+                       <li>
+                                                    <a href="<%=mynews_path(title: title.parameterize, category: news.topics.first.try(:name))%>">
+                                                        <%=news.title%>
+                                                        
+                                                                                                                                                                                    <span><%=news.topics.map(&:name).join(', ') %></span>
+                                                                                                                        <span><%=l(news.created_at, format: :datenews)%></span>
+                                                                                                                                                                    </a>
+                                                </li>

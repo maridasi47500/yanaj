@@ -1,0 +1,78 @@
+ <main class="site-main" role="main">
+                <div class="page-content thematique thematique-vie-pratique">
+        <div class="page-banner">
+            <div class="banner orange-to-yellow"
+            style="background-image: linear-gradient(136deg, #332ef0 0%, #72e5aa 100%)">
+    
+    <div class="container relative banner-container">
+        <div class="flex row flex-col lg:flex-row">
+            <div class="flex">
+                <div class="logo-overlay"></div>
+                <h1 class="page-title"><%=@topic.title%></h1>
+            </div>
+
+            <div class="pro-content-container flex flex-row items-center">
+                                    <img class="character hidden lg:block ml-auto" alt=""
+                        src="<%=@topic.image%>">
+                
+                                    <div class="are-you-pro flex flex-row lg:flex-col items-center">
+                        <strong class="font-bold text-white">Vous êtes professionnel ?</strong>
+                        <a href="https://www.yana-j.fr/page-pro-vie-pratique-2020/" class="btn outline font-cursive">
+                            Accédez aux infos dédiées
+                        </a>
+                    </div>
+                            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+        <div class="after-banner">
+            <div class="container">
+                <div class="flex row flex-col md:flex-row iems-center thematique-details">
+                    <div class="details">
+                        <%=@topic.content.html_safe%>
+                    </div>
+
+                    <div class="w-full md:w-14/16 lg:w-14/16 xl:w-12/16 links">
+                        <h3 class="font-bold">Liens utiles</h3>
+                        <ul class="links-list">
+                            <%@topic.links.each do |link|%>
+                                      <li style="color:#332ef0">
+                                        <a style="color:#332ef0"
+                                            href="<%=link.url%>" target="_blank"><%=link.name%></a>
+                                    </li>
+                                  <%end%>
+                                 </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                    <div class="content-thematique">
+                <div class="container">
+                    <div class="row rubriques-list-wrapper">
+                        <div class="flex flex-wrap rubriques-list items-stretch">
+    
+              <%=render collection: @topic.topiccats, partial: "topiccat", as: :cat%>    
+                          
+                                                    
+                    
+                </div>
+            </div>
+        </div>
+                            <div class="pro-wrapper flex items-center flex-col" style="background-image: url(https://www.yana-j.fr/wp-content/themes/yanaj/static/dist/img/bg-pro-min.jpg)">
+                <h2>Professionnels</h2>
+                <p>Venez découvrir et partager les informations qui vous concernent</p>
+                <a href="https://www.yana-j.fr/page-pro-vie-pratique-2020/" class="mr-3 btn white inline-block font-cursive">
+                                            Connectez-vous
+                                    </a>
+            </div>
+        
+        <div class="testimonial-wrapper flex flex-col items-center justify-center"
+            style="background-image: linear-gradient(-5deg, #332ef0 0%, #72e5aa 100%);">
+            <div class="overlay-j"></div>
+            <%=render collection: @topic.testimonials, as: :testimonial, partial: "testimonial"%>
+        </div>
+    </div>
+        </main>

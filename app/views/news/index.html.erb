@@ -1,0 +1,71 @@
+<main class="site-main" role="main">
+                <div class="page-content actualites actualites-articles">
+        <div class="page-banner">
+            <div class="banner orange-to-yellow">
+    
+    <div class="container relative banner-container">
+        <div class="flex row flex-col lg:flex-row">
+            <div class="flex">
+                <div class="logo-overlay"></div>
+            i    <h1 class="page-title">Actualités - page <%=@page%></h1>
+            </div>
+
+            <div class="pro-content-container flex flex-row items-center">
+                                    <img class="character hidden lg:block ml-auto" alt=""
+                        src="">
+                
+                            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+                <div class="after-banner">
+            <div class="container">
+                <div class="flex row flex-col">
+                    <div class="breadcrumb"><span><span><a href="https://www.yana-j.fr/">Accueil</a> &gt; <span class="breadcrumb_last" aria-current="page">Actualités - page <%=@page%></span></span></span></div>
+                    <form id="news_filters" method="get">
+                        <div class="thematique-filter flex items-start lg:items-center flex-col lg:flex-row">
+                            <strong class="block">Filter :</strong>
+                            <%=select_tag "thematique", options_for_select(([["Non définie","default"], ["Toutes les thématiques","Toutes"]]+Topic.all.collect{|x|[x.name,x.url]}), params[:thematique]), {class:"block", action:"/", id:"thematiques"}%>
+                             <%if params[:thematique]%>
+                        <div class="filter-reset ml-3 js-filter-reset">
+                                <a id="news_filters_reset" class="inline-flex items-center" aria-label="Réinitialiser le filtre" href="#">
+                                    <svg width="16" height="16" role="img">
+                                        <use xlink:href="https://www.yana-j.fr/wp-content/themes/yanaj/static/dist/img/svg-defs.svg#icn_red_cross"></use>
+                                    </svg>
+                                    <span>Réinitialiser le filtre</span>
+                                </a>
+                            </div>     
+                            <%end%>
+                                                                    
+
+                            <div class="filter-reset hidden ml-3 js-filter-reset">
+                                <a id="news_filters_reset" class="inline-flex items-center" aria-label="Réinitialiser le filtre" href="#">
+                                    <svg width="16" height="16" role="img">
+                                        <use xlink:href="https://www.yana-j.fr/wp-content/themes/yanaj/static/dist/img/svg-defs.svg#icn_red_cross"/>
+                                    </svg>
+                                    <span>Réinitialiser le filtre</span>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="archive-actualites">
+            <div class="container small">
+                <div class="actualites-list cards-container flex row items-stretch justify-between flex-wrap -mx-4">
+                                    <%=render collection: @news, as: :news, partial: "news/news"%>
+                                    </div>
+            </div>
+        </div>
+
+                    <div class="container small">
+    <div class="pagination-container">
+        <%=render "news/navpagination"%>
+    </div>
+</div>
+            </div>
+        </main>

@@ -1,0 +1,2 @@
+module PageprosHelper
+end

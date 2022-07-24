@@ -1,0 +1,25 @@
+                <div class="flex flex-row w-full lg:mt-0 mt-5">
+
+<div class="w-full xs:w-2/3 card-event">
+                <div class="inner-event-card">
+    <span class="event-date font-cursive text-blue-200"><%=event.mydate%></span>
+
+    <h3 class="font-bold event-title">
+        <a class="text-black-200" href="<%=event_path(title: event.url)%>"><%=event.title%></a>
+    </h3>
+
+    <p class="event-location font-semibold text-black-300"></p>
+    <p class="event-excerpt text-black-300"><%=event.excerpt%></p>
+
+    <a href="<%=event_path(title: event.url)%>" class="read-more">
+    Lire
+    <svg width="20" height="20" role="img">
+        <use xlink:href="https://www.yana-j.fr/wp-content/themes/yanaj/static/dist/img/svg-defs.svg#icn_plus"></use>
+    </svg>
+</a>
+</div>
+            </div>
+<div class="event-picture hidden xs:block">
+                <img src="<%=event.image%>" alt="">
+            </div>
+        </div>

@@ -1,0 +1,32 @@
+<article class="px-4 w-full md:w-1/2 lg:w-1/2">
+    <div  class="card-news-wrapper overflow-hidden "
+        data-equalize="card-news-wrapper">
+                    <a href="<%=mynews_path(category: (news.topics.first.try(:url)||"default"), title: news.url)%>">
+                <img class="w-full" src="<%=news.image%>" alt="">
+            </a>
+        
+        <div class="content" data-equalize="news-cards-content">
+            <span class="news-date text-blue-100 font-cursive"><%=l(news.created_at,format: :mydatenews)%></span>
+
+            <span class="font-bold post-homepage" data-equalize="news-cards-title">
+                <a class="text-black-200" href="<%=mynews_path(category: (news.topics.first.try(:url)||"default"), title: news.url)%>"><%=news.title%></a>
+            </span>
+
+            
+                            <div class="categories-list" data-equalize="news-cards-categories">
+                                <%news.topics.each do |topic|%>
+                                            <span class="category mb-2 mr-2"><%=topic.name%></span>
+                                <%end%>    
+                                </div>
+                    </div>
+
+        <div class="read-more-container self-end">
+            <a href="<%=mynews_path(category: (news.topics.first.try(:url)||"default"), title: news.url)%>" class="read-more">
+    Lire
+    <svg width="20" height="20" role="img">
+        <use xlink:href="https://www.yana-j.fr/wp-content/themes/yanaj/static/dist/img/svg-defs.svg#icn_plus"/>
+    </svg>
+</a>
+        </div>
+    </div>
+</article>

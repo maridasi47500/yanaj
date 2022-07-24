@@ -1,0 +1,8 @@
+  <li>
+                                                    <a href="<%=event_path(title: event.url)%>">
+                                                       <%=event.title%>
+                                                        
+                                                                                                                                                                                                                                            <span><%=event.topics.map(&:name).join(', ') %></span>
+                                                                                                                        <span><%=event.mydate%></span>
+                                                                                                            </a>
+                                                </li>

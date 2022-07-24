@@ -1,0 +1,223 @@
+<main class="site-main" role="main">
+                <div class="page-content recherche">
+        <div class="page-banner">
+            <div class="banner orange-to-yellow">
+    
+    <div class="container relative banner-container">
+        <div class="flex row flex-col lg:flex-row">
+            <div class="flex">
+                <div class="logo-overlay"></div>
+                <h1 class="page-title">Recherche</h1>
+            </div>
+
+            <div class="pro-content-container flex flex-row items-center">
+                                    <img class="character hidden lg:block ml-auto" alt=""
+                        src="">
+                
+                            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+                <div class="after-banner">
+            <div class="container">
+                <div class="flex row flex-col">
+                    <div class="breadcrumb"><span><span><a href="https://www.yana-j.fr/">Accueil</a> &gt; <span class="breadcrumb_last" aria-current="page">Recherche</span></span></span></div>
+                    <div class="container xs search-container">
+                        <form class="flex items-center search-form justify-between"
+                              method="get" action="/recherche/" role="search">
+                            <input class="search-input" type="text" name="search_key"
+                                placeholder="Tapez ici votre recherche"
+                                aria-label="Rechercher sur le site"
+                                value="<%=params[:search_key]%>" />
+                            <button class="btn green font-cursive submit-search"
+                                type="submit"
+                                aria-label="Lancer la recherche sur le site">
+                                Rechercher
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <div class="search-results">
+            <div class="container">
+                <div class="row">
+                    <h2 class="mb-6 font-bold text-black-100 text-center">Vos résultats pour la recherche : <span class="italic font-normal"><%=params[:search_key]%></span></h2>
+                </div>
+                <div class="row">
+                    <div class="tabs-wrapper js-tabs-wrapper">
+                        <select class="block md:hidden mb-4 px-4 py-3 js-tabs-select">
+                                                            <option  id="content-0-tab"
+                                    value=".content-0">
+                                    Tous les résultats (<%=@all.length%>)
+                                </option>
+                                                            <option  id="content-1-tab"
+                                    value=".content-1">
+                                    Actualités (<%=@news.length%>)
+                                </option>
+                                                            <option  id="content-2-tab"
+                                    value=".content-2">
+                                    Événements (<%=@events.length%>)
+                                </option>
+                                                            <option  id="content-3-tab"
+                                    value=".content-3">
+                                    Dispositifs (<%=@plans.length%>)
+                                </option>
+                                                            <option  id="content-4-tab"
+                                    value=".content-4">
+                                    Catégories (<%=@categories.length%>)
+                                </option>
+                                                            <option  id="content-5-tab"
+                                    value=".content-5">
+                                    Pages (<%=@pages.length%>)
+                                </option>
+                                                            <option  id="content-6-tab"
+                                    value=".content-6">
+                                    Offres d'emploi (0)
+                                </option>
+                                                    </select>
+
+                        <nav class="tabs-navigation js-tabs-navigation hidden md:flex">
+                                                            <a class="tab-nav-item active js-tab-trigger"
+                                    id="content-0-tab"
+                                    href="#"
+                                    role="tab" aria-controls="content-0-content"
+                                    aria-selected="true"
+                                    aria-label="Tous les résultats : <%=@all.length%> éléments"
+                                    data-content=".content-0">Tous les résultats (<%=@all.length%>)</a>
+                                                            <a class="tab-nav-item  js-tab-trigger"
+                                    id="content-1-tab"
+                                    href="#"
+                                    role="tab" aria-controls="content-1-content"
+                                    aria-selected="false"
+                                    aria-label="Actualités : <%=@news.length%> éléments"
+                                    data-content=".content-1">Actualités (<%=@news.length%>)</a>
+                                                            <a class="tab-nav-item  js-tab-trigger"
+                                    id="content-2-tab"
+                                    href="#"
+                                    role="tab" aria-controls="content-2-content"
+                                    aria-selected="false"
+                                    aria-label="Événements : <%=@events.length%> éléments"
+                                    data-content=".content-2">Événements (<%=@events.length%>)</a>
+                                                            <a class="tab-nav-item  js-tab-trigger"
+                                    id="content-3-tab"
+                                    href="#"
+                                    role="tab" aria-controls="content-3-content"
+                                    aria-selected="false"
+                                    aria-label="Dispositifs : <%=@plans.length%> éléments"
+                                    data-content=".content-3">Dispositifs (<%=@plans.length%>)</a>
+                                                            <a class="tab-nav-item  js-tab-trigger"
+                                    id="content-4-tab"
+                                    href="#"
+                                    role="tab" aria-controls="content-4-content"
+                                    aria-selected="false"
+                                    aria-label="Catégories : <%=@categories.length%> éléments"
+                                    data-content=".content-4">Catégories (<%=@categories.length%>)</a>
+                                                            <a class="tab-nav-item  js-tab-trigger"
+                                    id="content-5-tab"
+                                    href="#"
+                                    role="tab" aria-controls="content-5-content"
+                                    aria-selected="false"
+                                    aria-label="Pages : <%=@pages.length%> éléments"
+                                    data-content=".content-5">Pages (<%=@pages.length%>)</a>
+                                                            <a class="tab-nav-item  js-tab-trigger"
+                                    id="content-6-tab"
+                                    href="#"
+                                    role="tab" aria-controls="content-6-content"
+                                    aria-selected="false"
+                                    aria-label="Offres d'emploi : 0 éléments"
+                                    data-content=".content-6">Offres d'emploi (0)</a>
+                                                    </nav>
+
+                        <div class="tabs-content js-tabs-content">
+                                                            <div class="content-0 tab-content active"
+                                    id="content-0-content"
+                                    
+                                    role="tabpanel" aria-labelledby="content-0-tab">
+<%if @all.length > 0%>
+                                                                            <ul>
+                                                                            <%=@all.map{|h|(render "home/search"+h.model_name.collection, :"#{h.model_name.collection.singularize}" => h)}.join('').html_safe%>
+                                                 
+                                               
+                                                  </ul>
+<%else%>
+Aucun contenu trouvé
+<%end%>
+                                                                    </div>
+                                                            <div class="content-1 tab-content "
+                                    id="content-1-content"
+                                    aria-hidden="true"
+                                    role="tabpanel" aria-labelledby="content-1-tab">
+<%if @news.length > 0%>
+                                                                            <ul>
+                                                                            <%=render partial: "home/searchnews", as: :news, collection: @news %>
+
+                                                                                    </ul>
+<%else%>
+Aucun contenu trouvé
+<%end%>
+                                                                    </div>
+                                                            <div class="content-2 tab-content "
+                                    id="content-2-content"
+                                    aria-hidden="true"
+                                    role="tabpanel" aria-labelledby="content-2-tab">
+<%if @events.length > 0%>
+                                                                            <ul>
+                                                                            <%=render partial: "home/searchevents", as: :event, collection: @events %>
+                                                                               
+                                                                                    </ul>
+<%else%>
+Aucun contenu trouvé
+<%end%>
+                                                                    </div>
+                                                            <div class="content-3 tab-content "
+                                    id="content-3-content"
+                                    aria-hidden="true"
+                                    role="tabpanel" aria-labelledby="content-3-tab">
+<%if @plans.length > 0%>
+                                                                            <ul>
+               <%=render partial: "home/searchplans", as: :plan, collection: @plans %>
+     
+                                                                                    </ul>
+<%else%>
+Aucun contenu trouvé
+<%end%>
+                                                                    </div>
+                                                            <div class="content-4 tab-content "
+                                    id="content-4-content"
+                                    aria-hidden="true"
+                                    role="tabpanel" aria-labelledby="content-4-tab">
+<%if @categories.length > 0%>
+<ul>
+<%=render partial: "searchcategories", as: :category, collection: @categories%>
+</ul>
+<%else%>
+                                                                            Aucun contenu trouvé
+<%end%>
+                                                                    </div>
+                                                            <div class="content-5 tab-content "
+                                    id="content-5-content"
+                                    aria-hidden="true"
+                                    role="tabpanel" aria-labelledby="content-5-tab">
+<%if @pages.length > 0%>
+<%=render partial: "searchpagesites", as: :pagesite, collection: @pages%>
+<%else%>
+                                                                            Aucun contenu trouvé
+<%end%>
+                                                                    </div>
+                                                            <div class="content-6 tab-content "
+                                    id="content-6-content"
+                                    aria-hidden="true"
+                                    role="tabpanel" aria-labelledby="content-6-tab">
+                                                                            Aucun contenu trouvé
+                                                                    </div>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </main>
